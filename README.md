@@ -1,63 +1,47 @@
-# German Traffic Sign Recognition with Deep Learning
+# 🚦 German Traffic Sign Recognition Benchmark (GTSRB)
 
-Classifying **43 categories** of German traffic signs using two deep-learning approaches:
-a **Custom CNN** built from scratch and **ResNet-50** with transfer learning.
+A deep learning project evaluating two neural network approaches to classify **43 categories** of traffic signs, surpassing the human accuracy benchmark.
 
 **Course:** Deep Learning  
-**Authors:** Abdulrahman Aqili · Ali Al-Qarni
+**Authors:** Abdulrahman Aqili & Ali Al-Qarni
 
 ---
 
-## 📊 Results
+## 📊 Quick Results
 
-| Model       | Top-1 Accuracy | Top-5 Accuracy | Parameters |
-|-------------|---------------:|---------------:|-----------:|
-| Custom CNN  | **97.82 %**    | 99.74 %        | 0.46 M     |
-| ResNet-50   | **99.18 %**    | 99.96 %        | 23.6 M     |
-
-> ResNet-50 surpasses the human benchmark of 98.84 % (Stallkamp et al., 2012).
-
-![Benchmark](results/benchmark.png)
+| Model | Top-1 Accuracy | Top-5 Accuracy | Parameters | Status |
+| :--- | :---: | :---: | :---: | :--- |
+| **ResNet-50** (Transfer Learning) | **99.18%** | 99.96% | ~23.6 M | **Exceeds human benchmark** (98.84%) |
+| **Custom CNN** (From Scratch) | **97.82%** | 99.74% | **~0.46 M** | **Lightweight alternative** (50x smaller) |
 
 ---
 
-## 🗂️ Dataset
+## 🗂️ Dataset Setup
 
-[GTSRB – German Traffic Sign Recognition Benchmark](https://benchmark.ini.rub.de/gtsrb_news.html)
-- 43 classes, ~39k train / ~12k test images
-- Downloaded automatically by `torchvision.datasets.GTSRB`
+Due to GitHub size limits, download the dataset directly from Kaggle:
+👉 **[Download GTSRB Dataset on Kaggle](https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign)**
 
-See [`data/README.md`](data/README.md) for setup details.
+### Project Tree
+Extract the downloaded ZIP into a root folder named `data/` (ensure it is added to your `.gitignore`):
 
----
-
-## 🚀 Quick Start
-
-```bash
-# 1. Clone
-git clone https://github.com/<your-username>/GTSRB-Traffic-Sign-Recognition.git
+```text
+GTSRB-Traffic-Sign-Recognition/
+├── data/                  # ⚠️ Excluded from GitHub (Contains Meta, Train, Test)
+├── notebooks/             # Contains GTSRB_Explanation_Professional.ipynb
+├── results/               # Saved plots and benchmarks
+├── .gitignore             
+├── README.md              
+└── requirements.txt
+🚀 Quick Start
+Bash
+# 1. Clone & Navigate
+git clone [https://github.com/](https://github.com/)<your-username>/GTSRB-Traffic-Sign-Recognition.git
 cd GTSRB-Traffic-Sign-Recognition
 
-# 2. Install dependencies
+# 2. Install Dependencies
 pip install -r requirements.txt
 
-# 3. Open the notebook
-jupyter notebook notebooks/GTSRB_DeepLearning_1.ipynb
-```
-
----
-
-## 🧠 Models
-
-**Custom CNN** – three Conv-BN-ReLU blocks → Global Average Pooling → classifier.
-**ResNet-50** – pre-trained on ImageNet, backbone frozen, only the final layer retrained.
-
----
-
-## 📁 Project Structure
-(insert the tree from section 1)
-
----
-
-## 📜 License
-MIT — see [LICENSE](LICENSE).
+# 3. Open Notebook
+jupyter notebook notebooks/GTSRB_Explanation_Professional.ipynb
+📜 License
+MIT License — see LICENSE.
